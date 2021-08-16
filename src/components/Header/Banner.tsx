@@ -1,15 +1,23 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { SpeakerphoneIcon, XIcon } from '@heroicons/react/outline'
+import { useState } from 'react'
 
 type HeaderBannerProps = {
     text: string;
     action: {
         text: string;
         link: string;
-    }
+    },
+    closeDisabled?: boolean;
 }
 
-export default function HeaderBanner({ text, action }: HeaderBannerProps) {
+export default function HeaderBanner({ text, action, closeDisabled }: HeaderBannerProps) {
+  const [ isOpen, toggleSwitch ] = useState(true)
+
+  if (!isOpen) {
+      return <></>
+  }
+
   return (
     <div className="bg-indigo-600">
       <div className="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
@@ -30,15 +38,18 @@ export default function HeaderBanner({ text, action }: HeaderBannerProps) {
               { action.text }
             </a>
           </div>
-          <div className="order-2 flex-shrink-0 sm:order-3 sm:ml-3">
-            <button
-              type="button"
-              className="-mr-1 flex p-2 rounded-md hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2"
-            >
-              <span className="sr-only">Dismiss</span>
-              <XIcon className="h-6 w-6 text-white" aria-hidden="true" />
-            </button>
-          </div>
+          { !closeDisabled && 
+            <div className="order-2 flex-shrink-0 sm:order-3 sm:ml-3">
+                <button
+                onClick={() => toggleSwitch(false) }
+                type="button"
+                className="-mr-1 flex p-2 rounded-md hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2"
+                >
+                <span className="sr-only">Dismiss</span>
+                <XIcon className="h-6 w-6 text-white" aria-hidden="true" />
+                </button>
+            </div>
+        }
         </div>
       </div>
     </div>
