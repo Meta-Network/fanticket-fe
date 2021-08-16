@@ -12,7 +12,7 @@ export default function Home() {
       </Head>
 
       <HeaderBanner 
-        text={{ short: 'AirDropping 🪂 DAO now', long: 'We are giving $DAO for free now' }}
+        text='We are giving $DAO for free now. Go and Claim your $DAO now!'
         action={{ link: '/dashboard', text: 'Get $DAO' }}
       />
       <NavigationBar />

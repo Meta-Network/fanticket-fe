@@ -2,10 +2,7 @@
 import { SpeakerphoneIcon, XIcon } from '@heroicons/react/outline'
 
 type HeaderBannerProps = {
-    text: {
-        short: string;
-        long: string;
-    };
+    text: string;
     action: {
         text: string;
         link: string;
@@ -21,9 +18,8 @@ export default function HeaderBanner({ text, action }: HeaderBannerProps) {
             <span className="flex p-2 rounded-lg bg-indigo-800">
               <SpeakerphoneIcon className="h-6 w-6 text-white" aria-hidden="true" />
             </span>
-            <p className="ml-3 font-medium text-white truncate">
-              <span className="md:hidden">{text.short}</span>
-              <span className="hidden md:inline">{text.long}</span>
+            <p className="ml-3 font-medium text-white">
+              <span className="inline">{text}</span>
             </p>
           </div>
           <div className="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto">
