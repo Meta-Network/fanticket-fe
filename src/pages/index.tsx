@@ -35,19 +35,7 @@ export default function Home() {
   ]
   const [modalV, setModalV] = useState(false)
   return (
-    <div className="flex flex-col justify-center min-h-screen">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <HeaderBanner 
-        text='We are giving $DAO for free now. Go and Claim your $DAO now!'
-        action={{ link: '/dashboard', text: 'Get $DAO' }}
-      />
-      <NavigationBar />
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-
         <button 
             type="button"
             className="rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white"
@@ -85,10 +73,5 @@ export default function Home() {
           { features }
         </FeatureSections>
       </main>
-
-      <footer className="flex items-center justify-center w-full h-24 border-t">
-          Meta Network All Right Reserved.
-      </footer>
-    </div>
   )
 }
