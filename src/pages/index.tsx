@@ -33,7 +33,7 @@ export default function Home() {
           </code>
         </p>
 
-        <Modal visible={modalV} setVisiable={setModalV} onClose={() => setModalV(false)}></Modal>
+        <Modal visible={modalV} setVisiable={setModalV}></Modal>
 
       </main>
 

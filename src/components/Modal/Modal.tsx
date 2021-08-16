@@ -6,10 +6,10 @@ import { ExclamationIcon } from '@heroicons/react/outline'
 type ModalProps = {
   visible: boolean;
   setVisiable: (v: boolean) => void;
-  onClose: () => void;
+  onClose?: () => void;
 }
 
-export default function Modal({ visible, onClose, setVisiable }: ModalProps) {
+export default function Modal({ visible, setVisiable, onClose = () => setVisiable(false) }: ModalProps) {
 
   const cancelButtonRef = useRef(null)
 
