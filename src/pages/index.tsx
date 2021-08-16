@@ -3,9 +3,37 @@ import Head from 'next/head'
 import NavigationBar from '../components/Header/NavigationBar'
 import HeaderBanner from '../components/Header/Banner'
 import Modal from '../components/Modal/Modal'
+import { AnnotationIcon, GlobeAltIcon, LightningBoltIcon, ScaleIcon } from '@heroicons/react/outline'
+import FeatureSections from '../components/FeatureSection'
 
 export default function Home() {
-  const [modalV, setModalV] = useState(true)
+  const features = [
+    {
+      name: 'Competitive exchange rates',
+      description:
+        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+      icon: GlobeAltIcon,
+    },
+    {
+      name: 'No hidden fees',
+      description:
+        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+      icon: ScaleIcon,
+    },
+    {
+      name: 'Transfers are instant',
+      description:
+        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+      icon: LightningBoltIcon,
+    },
+    {
+      name: 'Mobile notifications',
+      description:
+        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+      icon: AnnotationIcon,
+    },
+  ]
+  const [modalV, setModalV] = useState(false)
   return (
     <div className="flex flex-col justify-center min-h-screen">
       <Head>
@@ -19,19 +47,11 @@ export default function Home() {
       />
       <NavigationBar />
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
 
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="p-3 font-mono text-lg bg-gray-100 rounded-md">
-            pages/index.tsx
-          </code>
-        </p>
+        <button 
+            type="button"
+            className="rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white"
+            onClick={() => setModalV(true)}> Open Modal </button>
 
         <Modal 
           visible={modalV} setVisiable={setModalV}
@@ -58,6 +78,12 @@ export default function Home() {
           </>}
         </Modal>
 
+        <FeatureSections 
+          title="Social Token made easy?" 
+          description="We host wallets and tokens for you, so that you do not need a Wallet apps or Browser extensions."
+          titleLabel="Fan Ticket">
+          { features }
+        </FeatureSections>
       </main>
 
       <footer className="flex items-center justify-center w-full h-24 border-t">
