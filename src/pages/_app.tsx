@@ -2,6 +2,7 @@ import type { AppProps /*, AppContext */ } from 'next/app'
 import Head from 'next/head'
 import React from 'react'
 import 'tailwindcss/tailwind.css'
+import Footer from '../components/Footer'
 import HeaderBanner from '../components/Header/Banner'
 import NavigationBar from '../components/Header/NavigationBar'
 import Providers from '../components/_provider'
@@ -23,9 +24,24 @@ function MyApp({ Component, pageProps }: AppProps) {
       {/* inject page content here */}
       <Component {...pageProps} />
 
-      <footer className="flex items-center justify-center w-full h-24 border-t">
-          Meta Network All Right Reserved.
-      </footer>
+      <Footer>{[
+        {
+          name: 'About',
+          link: '/about'
+        },
+        {
+          name: 'FAQ',
+          link: '/faq'
+        },
+        {
+          name: 'Meta CMS',
+          link: '#'
+        },
+        {
+          name: 'Meta Network',
+          link: '#'
+        },
+        ]}</Footer>
     </div>
   </Providers>
 }
