@@ -1,6 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
-import NavigationBar from '../components/Navigation/NavigationBar'
+import NavigationBar from '../components/Header/NavigationBar'
+import HeaderBanner from '../components/Header/Banner'
 
 export default function Home() {
   return (
@@ -10,6 +11,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <HeaderBanner 
+        text={{ short: 'AirDropping 🪂 DAO now', long: 'We are giving $DAO for free now' }}
+        action={{ link: '/dashboard', text: 'Get $DAO' }}
+      />
       <NavigationBar />
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
         <h1 className="text-6xl font-bold">
