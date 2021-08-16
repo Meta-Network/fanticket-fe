@@ -5,6 +5,7 @@ import HeaderBanner from '../components/Header/Banner'
 import Modal from '../components/Modal/Modal'
 import { AnnotationIcon, GlobeAltIcon, LightningBoltIcon, ScaleIcon } from '@heroicons/react/outline'
 import FeatureSections from '../components/FeatureSection'
+import LandingSection from '../components/LandingSection'
 
 export default function Home() {
   const features = [
@@ -35,7 +36,8 @@ export default function Home() {
   ]
   const [modalV, setModalV] = useState(false)
   return (
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
+      <main className="flex flex-col items-center justify-center w-full flex-1 text-center">
+        <LandingSection />
         <button 
             type="button"
             className="rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white"
