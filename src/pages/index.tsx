@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Head from 'next/head'
 import NavigationBar from '../components/Header/NavigationBar'
 import HeaderBanner from '../components/Header/Banner'
+import Modal from '../components/Modal/Modal'
 
 export default function Home() {
+  const [modalV, setModalV] = useState(true)
   return (
     <div className="flex flex-col justify-center min-h-screen">
       <Head>
@@ -30,6 +32,8 @@ export default function Home() {
             pages/index.tsx
           </code>
         </p>
+
+        <Modal visible={modalV} setVisiable={setModalV} onClose={() => setModalV(false)}></Modal>
 
       </main>
 
