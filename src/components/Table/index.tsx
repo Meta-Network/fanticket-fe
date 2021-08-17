@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 /* This example requires Tailwind CSS v2.0+ */
 const people = [
     {
@@ -11,7 +13,30 @@ const people = [
     },
     // More people...
   ]
-  
+
+type DataSource = Record<string, any>[]
+
+type ColumnType = {
+    align:	'left' | 'right' | 'center' | 'left';
+    className: 'string';
+    colSpan:		number;
+    dataIndex:	string | string[];
+    // 	React 需要的 key，如果已经设置了唯一的 dataIndex，可以忽略这个属性	
+    key: string;
+    // 生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引，@return 里面可以设置表格行/列合并
+    render: (text, record, index) => void;	
+    // 排序函数，本地排序使用一个函数(参考 Array.sort 的 compareFunction)，需要服务端排序可设为 true
+    sorter:		(...args: any[]) => boolean | boolean;
+    // 排序的受控属性，外界可用此控制列的排序，可设置为 ascend descend
+    sortOrder: boolean | string;
+    title:	ReactNode | (({ sortOrder, sortColumn, filters }) => ReactNode);
+}
+
+interface TableProps {
+    readonly dataSource: DataSource;
+    columns: ColumnType[];
+}
+
 export default function Table() {
     return (
       <div className="flex flex-col">
