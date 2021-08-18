@@ -1,4 +1,5 @@
-import { useRouter } from "next/dist/client/router";
+import { useRouter } from "next/router";
+import Link from 'next/link'
 import React, { ReactNode } from "react";
 import { useMemo } from "react";
 
@@ -35,16 +36,20 @@ export default function Sidebar({ children, menuItems }: SidebarProps) {
                     <nav className="mt-6">
                         <div>
                             { computedMenus.map(item => (
+                                <Link 
+                                key={item.url}
+                                href={item.url}
+                                passHref>
                                 <a
-                                    key={item.url}
-                                    className={item.style} href={item.url}>
+                                    className={item.style} >
                                     <span className="text-left">
                                         <item.icon width="20" height="20" />
                                     </span>
                                     <span className="mx-2 text-sm font-normal">
                                         {item.name}
                                     </span>
-                                </a>)
+                                </a>
+                                </Link>)
                             ) }
                         </div>
                     </nav>
