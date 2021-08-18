@@ -1,3 +1,4 @@
+import { ArrowRightIcon, HomeIcon } from "@heroicons/react/outline";
 import React, {  } from "react";
 import Sidebar from "../../components/Sidebar";
 import Table from "../../components/Table";
@@ -8,11 +9,12 @@ export default function Wallet() {
                 {
                     name: 'My Wallet',
                     url: '/wallet',
-                    
+                    icon: HomeIcon
                 },
                 {
                     name: 'Transfer',
-                    url: '/wallet/transfer'
+                    url: '/wallet/transfer',
+                    icon: ArrowRightIcon
                 },
             ]}
             >
