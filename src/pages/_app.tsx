@@ -25,7 +25,6 @@ function MyApp({ Component, pageProps }: AppProps) {
             { name: 'Wallet', href: '/wallet', },
             { name: 'Token', href: '/token', },
             { name: 'Swap', href: '/swap', },
-            { name: 'My Assets', href: '/my/asset', },
             { name: 'DApps', href: '/dapp', },
         ]}
         />
