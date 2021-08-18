@@ -1,23 +1,10 @@
 import { ArrowRightIcon, HomeIcon } from "@heroicons/react/outline";
 import React, {  } from "react";
-import Sidebar from "../../components/Sidebar";
+import WalletPageSidebar from "../../components/Sidebar/WalletSidebar";
 import Table from "../../components/Table";
 
 export default function Wallet() {
-    return <Sidebar
-            menuItems={[
-                {
-                    name: 'My Wallet',
-                    url: '/wallet',
-                    icon: HomeIcon
-                },
-                {
-                    name: 'Transfer',
-                    url: '/wallet/transfer',
-                    icon: ArrowRightIcon
-                },
-            ]}
-            >
+    return <WalletPageSidebar>
                 <div className="pb-24 px-4 md:px-6">
                     <h1 className="text-4xl font-semibold text-gray-800 dark:text-white">
                         Good evening, Frank
@@ -104,5 +91,5 @@ export default function Wallet() {
                         <Table />
                     </div>
                 </div>
-    </Sidebar>
+    </WalletPageSidebar>
 }
