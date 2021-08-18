@@ -4,7 +4,7 @@ import { useMemo } from "react";
 
 type MenuItem = {
     name: string;
-    icon?: (...args: any[]) => ReactNode;
+    icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
     url: string;
 }
 interface SidebarProps {
@@ -39,7 +39,7 @@ export default function Sidebar({ children, menuItems }: SidebarProps) {
                                     key={item.url}
                                     className={item.style} href={item.url}>
                                     <span className="text-left">
-                                        {item.icon}
+                                        <item.icon width="20" height="20" />
                                     </span>
                                     <span className="mx-2 text-sm font-normal">
                                         {item.name}
