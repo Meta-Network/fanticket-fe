@@ -9,7 +9,7 @@ import Providers from '../components/_provider'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return <Providers>
-    <div className="flex flex-col justify-center min-h-screen">
+    <div className="flex flex-col justify-center">
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
