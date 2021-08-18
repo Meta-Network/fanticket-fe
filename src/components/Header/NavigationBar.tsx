@@ -1,5 +1,6 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Fragment } from 'react'
+import Link from 'next/link'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import { useMemo } from 'react'
@@ -55,9 +56,11 @@ export default function NavigationBar({ navigations }: NavBarProps) {
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {computedNavigation.map((item) => (
-                      <a
+                      <Link 
                         key={item.name}
-                        href={item.href}
+                        href={item.href} 
+                        passHref>
+                      <a
                         className={classNames(
                           item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                           'px-3 py-2 rounded-md text-sm font-medium'
@@ -66,6 +69,7 @@ export default function NavigationBar({ navigations }: NavBarProps) {
                       >
                         {item.name}
                       </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -138,17 +142,21 @@ export default function NavigationBar({ navigations }: NavBarProps) {
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {computedNavigation.map((item) => (
-                <a
+                <Link
                   key={item.name}
                   href={item.href}
-                  className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block px-3 py-2 rounded-md text-base font-medium'
-                  )}
-                  aria-current={item.current ? 'page' : undefined}
+                  passHref
                 >
-                  {item.name}
-                </a>
+                  <a
+                    className={classNames(
+                      item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                      'block px-3 py-2 rounded-md text-base font-medium'
+                    )}
+                    aria-current={item.current ? 'page' : undefined}
+                  >
+                    {item.name}
+                  </a>
+                </Link>
               ))}
             </div>
           </Disclosure.Panel>
