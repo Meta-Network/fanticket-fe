@@ -19,7 +19,16 @@ function MyApp({ Component, pageProps }: AppProps) {
         text='We are giving $DAO for free now. Go and Claim your $DAO now!'
         action={{ link: '/dashboard', text: 'Get $DAO' }}
       />
-      <NavigationBar />
+      <NavigationBar
+        navigations={[
+            { name: 'Home', href: '/', },
+            { name: 'Wallet', href: '/wallet', },
+            { name: 'Token', href: '/token', },
+            { name: 'Swap', href: '/swap', },
+            { name: 'My Assets', href: '/my/asset', },
+            { name: 'DApps', href: '/dapp', },
+        ]}
+        />
       
       {/* inject page content here */}
       <Component {...pageProps} />
