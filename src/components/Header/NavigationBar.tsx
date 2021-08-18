@@ -2,21 +2,26 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+import { useMemo } from 'react'
+import { useRouter } from 'next/router'
 
-const navigation = [
-    { name: 'Home', href: '/', current: true },
-    { name: 'Wallet', href: '/wallet', current: false },
-    { name: 'Send', href: '/wallet/transfer', current: false },
-    { name: 'Swap', href: '/swap', current: false },
-    { name: 'My Assets', href: '/my/asset', current: false },
-    { name: 'DApps', href: '/dapp', current: false },
-]
+interface NavBarProps {
+  navigations: { name: string; href: string }[]
+}
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function NavigationBar() {
+export default function NavigationBar({ navigations }: NavBarProps) {
+  const router = useRouter();
+
+  const computedNavigation = useMemo(() => {
+    return navigations.map(n => {
+      const current = router.pathname === n.href;
+      return {...n, current}
+    })
+  }, navigations)
   return (
     <Disclosure as="nav" className="bg-gray-800 items-center">
       {({ open }) => (
@@ -49,7 +54,7 @@ export default function NavigationBar() {
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
-                    {navigation.map((item) => (
+                    {computedNavigation.map((item) => (
                       <a
                         key={item.name}
                         href={item.href}
@@ -132,7 +137,7 @@ export default function NavigationBar() {
 
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {navigation.map((item) => (
+              {computedNavigation.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
