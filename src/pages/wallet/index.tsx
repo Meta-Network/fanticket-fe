@@ -4,7 +4,7 @@ import WalletPageSidebar from "../../components/Sidebar/WalletSidebar";
 import Table from "../../components/Table";
 
 export default function Wallet() {
-    return <WalletPageSidebar>
+    return <div>
                 <div className="pb-24 px-4 md:px-6">
                     <h1 className="text-4xl font-semibold text-gray-800 dark:text-white">
                         Good evening, Frank
@@ -91,5 +91,5 @@ export default function Wallet() {
                         <Table />
                     </div>
                 </div>
-    </WalletPageSidebar>
+    </div>
 }

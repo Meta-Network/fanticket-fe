@@ -23,6 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         navigations={[
             { name: 'Home', href: '/', },
             { name: 'Wallet', href: '/wallet', },
+            { name: 'Transfer', href: '/wallet/transfer', },
             { name: 'Token', href: '/token', },
             { name: 'Swap', href: '/swap', },
             { name: 'DApps', href: '/dapp', },
