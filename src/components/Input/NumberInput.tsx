@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 
-interface NumberInputProps extends React.ComponentProps<'input'> {
+interface NumberInputProps extends Omit<React.ComponentProps<'input'>, 'className' | 'number'> {
     isFullWidth?: boolean;
 }
 
@@ -12,5 +12,6 @@ export function NumberInput(props: NumberInputProps) {
     }, [props])
     return <input 
         className={computedClassName}
+        type="number"
         {...props} />
 }

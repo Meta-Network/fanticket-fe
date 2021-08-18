@@ -1,10 +1,10 @@
 import React from "react";
-import { NumberInput } from "../../components/Input/NumberInput";
+import { NumberInput, Input } from "../../components/Input";
 import WalletPageSidebar from "../../components/Sidebar/WalletSidebar";
 
 export default function TransferAssetPage() {
     return (
-      <div className="py-4 px-4 bg-gray-50">
+      <div className="py-4 px-4 bg-gray-50 ">
         <div className="bg-white rounded p-6">
           <div className="md:grid md:grid-cols-3 md:gap-6">
             <div className="md:col-span-1">
@@ -16,41 +16,11 @@ export default function TransferAssetPage() {
               </div>
             </div>
             <div className="mt-5 md:mt-0 md:col-span-2">
-              <form action="#" method="POST">
+              {/* <form action="#" method="POST"> */}
                 <div className="shadow sm:rounded-md sm:overflow-hidden">
                   <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
-                    <div className="grid grid-cols-3 gap-6">
-                      <div className="col-span-3 sm:col-span-2">
-                        <label htmlFor="company-website" className="block text-sm font-medium text-gray-700">
-                          Amount
-                        </label>
-                        <div className="mt-1 flex rounded-md shadow-sm">
-                        <NumberInput />
-                        </div>
-                      </div>
-                    </div>
-  
-                    <div>
-                      <label htmlFor="about" className="block text-sm font-medium text-gray-700">
-                        About
-                      </label>
-                      <div className="mt-1">
-                        <textarea
-                          id="about"
-                          name="about"
-                          rows={3}
-                          className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
-                          placeholder="you@example.com"
-                          defaultValue={''}
-                        />
-                      </div>
-                      <p className="mt-2 text-sm text-gray-500">
-                        Brief description for your profile. URLs are hyperlinked.
-                      </p>
-                    </div>
-  
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700">Photo</label>
+                  <div>
+                      <label className="block text-sm font-medium text-gray-700">Token</label>
                       <div className="mt-1 flex items-center">
                         <span className="inline-block h-12 w-12 rounded-full overflow-hidden bg-gray-100">
                           <svg className="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
@@ -63,6 +33,29 @@ export default function TransferAssetPage() {
                         >
                           Change
                         </button>
+                      </div>
+                    </div>
+  
+                    <div>
+                      <label htmlFor="Receipient" className="block text-sm font-medium text-gray-700">
+                        Receipient (To):
+                      </label>
+                      <div className="mt-1">
+                        <Input type="text" placeholder="e.g. 0x1234567890....." />
+                      </div>
+                      <p className="mt-2 text-sm text-gray-500">
+                        Enter the the wallet address of the Receipient, started with '0x'.
+                      </p>
+                    </div>
+  
+                    <div className="grid grid-cols-3 gap-6">
+                      <div className="col-span-3 sm:col-span-2">
+                        <label htmlFor="company-website" className="block text-sm font-medium text-gray-700">
+                          Amount
+                        </label>
+                        <div className="mt-1 flex rounded-md shadow-sm">
+                          <NumberInput type="number" placeholder="Enter amount like 1.2345" isFullWidth step="0.0001" />
+                        </div>
                       </div>
                     </div>
   
@@ -82,7 +75,7 @@ export default function TransferAssetPage() {
                     </button>
                   </div>
                 </div>
-              </form>
+              {/* </form> */}
             </div>
           </div>
         </div>
