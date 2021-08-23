@@ -1,7 +1,6 @@
 import type { AppProps /*, AppContext */ } from 'next/app'
 import Head from 'next/head'
 import React from 'react'
-import 'tailwindcss/tailwind.css'
 import Footer from '../components/Footer'
 import HeaderBanner from '../components/Header/Banner'
 import NavigationBar from '../components/Header/NavigationBar'
@@ -15,7 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <HeaderBanner 
+      <HeaderBanner
         text='We are giving $DAO for free now. Go and Claim your $DAO now!'
         action={{ link: '/dashboard', text: 'Get $DAO' }}
       />
@@ -29,7 +28,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             { name: 'DApps', href: '/dapp', },
         ]}
         />
-      
+
       {/* inject page content here */}
       <Component {...pageProps} />
 
