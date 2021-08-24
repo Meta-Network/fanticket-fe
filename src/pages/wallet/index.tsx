@@ -1,5 +1,6 @@
 import { ArrowRightIcon, HomeIcon } from "@heroicons/react/outline";
 import React, {  } from "react";
+import { Box } from "rebass";
 import WalletPageSidebar from "../../components/Sidebar/WalletSidebar";
 import Table from "../../components/Table";
 

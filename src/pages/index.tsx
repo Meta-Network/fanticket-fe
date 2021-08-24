@@ -6,6 +6,7 @@ import Modal from '../components/Modal/Modal'
 import { AnnotationIcon, GlobeAltIcon, LightningBoltIcon, ScaleIcon } from '@heroicons/react/outline'
 import FeatureSections from '../components/FeatureSection'
 import LandingSection from '../components/LandingSection'
+import { Flex } from 'rebass'
 
 export default function Home() {
   const features = [
@@ -36,14 +37,14 @@ export default function Home() {
   ]
   const [modalV, setModalV] = useState(false)
   return (
-      <main className="flex flex-col items-center justify-center w-full flex-1 text-center">
+      <Flex as="main" flex="1 1 0%" alignItems="center" justifyContent="center" flexDirection="column" width="100%" textAlign="center">
         <LandingSection />
-        <button 
+        <button
             type="button"
             className="rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white"
             onClick={() => setModalV(true)}> Open Modal </button>
 
-        <Modal 
+        <Modal
           visible={modalV} setVisiable={setModalV}
           title="R U sure to Deactivate account?"
           description={`Are you sure you want to deactivate your account? All of your data will be permanently removed.
@@ -68,12 +69,12 @@ export default function Home() {
           </>}
         </Modal>
 
-        <FeatureSections 
-          title="Social Token made easy?" 
+        <FeatureSections
+          title="Social Token made easy?"
           description="We host wallets and tokens for you, so that you do not need a Wallet apps or Browser extensions."
           titleLabel="Fan Ticket">
           { features }
         </FeatureSections>
-      </main>
+      </Flex>
   )
 }

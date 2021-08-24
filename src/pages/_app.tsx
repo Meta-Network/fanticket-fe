@@ -1,6 +1,7 @@
 import type { AppProps /*, AppContext */ } from 'next/app'
 import Head from 'next/head'
 import React from 'react'
+import { Flex } from 'rebass'
 import Footer from '../components/Footer'
 import HeaderBanner from '../components/Header/Banner'
 import NavigationBar from '../components/Header/NavigationBar'
@@ -8,7 +9,7 @@ import Providers from '../components/_provider'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return <Providers>
-    <div className="flex flex-col justify-center">
+    <Flex flexDirection="column" justifyContent="center">
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
@@ -50,7 +51,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           link: '#'
         },
         ]}</Footer>
-    </div>
+    </Flex>
   </Providers>
 }
 

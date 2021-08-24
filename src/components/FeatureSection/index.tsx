@@ -1,6 +1,36 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { SVGProps } from 'react'
+import styled from 'styled-components'
 
+const Frame = styled.div`
+  background: white;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+`
+
+const FeaturesContainer = styled.div`
+  margin-top: 2.5rem;
+`
+
+const FeatureIconContainer = styled.div`
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(99, 102, 241);
+  color: white;
+  border-radius: 0.375rem;
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+`
+
+const FeatureNameContainer = styled.p`
+  margin-left: 4rem;
+`
+const FeatureDescriptionContainer = styled.dd`
+  margin-top: 0.5rem;
+  margin-left: 4rem;
+`
 
 type FeatureSectionParams = {
     titleLabel?: string;
@@ -21,7 +51,7 @@ export default function FeatureSections({
     children = []
 }: FeatureSectionParams) {
   return (
-    <div className="py-12 bg-white">
+    <Frame>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:text-center">
           <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">{ titleLabel }</h2>
@@ -33,22 +63,22 @@ export default function FeatureSections({
           </p>
         </div>
 
-        <div className="mt-10">
+        <FeaturesContainer>
           <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
             {children.map((feature) => (
               <div key={feature.name} className="relative">
                 <dt>
-                  <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-                    <feature.icon className="h-6 w-6" aria-hidden="true" />
-                  </div>
-                  <p className="ml-16 text-lg leading-6 font-medium text-gray-900">{feature.name}</p>
+                  <FeatureIconContainer className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                    <feature.icon aria-hidden="true" width="1.5rem" height="1.5rem" />
+                  </FeatureIconContainer>
+                  <FeatureNameContainer>{feature.name}</FeatureNameContainer>
                 </dt>
-                <dd className="mt-2 ml-16 text-base text-gray-500">{feature.description}</dd>
+                <FeatureDescriptionContainer className="mt-2 ml-16 text-base text-gray-500">{feature.description}</FeatureDescriptionContainer>
               </div>
             ))}
           </dl>
-        </div>
+        </FeaturesContainer>
       </div>
-    </div>
+    </Frame>
   )
 }
